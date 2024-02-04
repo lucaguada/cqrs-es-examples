@@ -11,10 +11,10 @@
   </parent>
 
   <groupId>io.grimlock.cqrses</groupId>
-  <artifactId>cqrs-es</artifactId>
+  <artifactId>no-aggregate</artifactId>
   <packaging>pom</packaging>
 
-  <name>Grimlock 🦖 | CQRS+ES ❕❔+⚡</name>
+  <name>Grimlock 🦖 | CQRS+ES with No Aggregate</name>
 
   <modules>
     <module>vanilla-jdk</module>
