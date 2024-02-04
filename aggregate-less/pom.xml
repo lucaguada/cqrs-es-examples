@@ -10,8 +10,8 @@
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <groupId>io.grimlock.cqrses</groupId>
-  <artifactId>no-aggregate</artifactId>
+  <groupId>io.grimlock.aggregate.less</groupId>
+  <artifactId>aggregate-less</artifactId>
   <packaging>pom</packaging>
 
   <name>Grimlock 🦖 | CQRS+ES with No Aggregate</name>
