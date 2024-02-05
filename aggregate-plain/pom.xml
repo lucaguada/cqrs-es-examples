@@ -13,6 +13,10 @@
   <artifactId>aggregate-plain</artifactId>
   <packaging>pom</packaging>
 
-  <name>Grimlock 🦖 | CQRS+ES with Plain Aggregate</name>
+  <name>Grimlock 🦖 | CQRS+ES with Plain Aggregate 🦕</name>
+
+  <modules>
+    <module>vertx</module>
+  </modules>
 
 </project>

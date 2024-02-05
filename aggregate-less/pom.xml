@@ -14,7 +14,7 @@
   <artifactId>aggregate-less</artifactId>
   <packaging>pom</packaging>
 
-  <name>Grimlock 🦖 | CQRS+ES with No Aggregate</name>
+  <name>Grimlock 🦖 | CQRS+ES with No Aggregate 🦕</name>
 
   <modules>
     <module>vanilla-jdk</module>

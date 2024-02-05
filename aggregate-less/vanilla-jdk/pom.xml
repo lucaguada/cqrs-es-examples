@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>vanilla-jdk</artifactId>
-  <name>Grimlock 🦖 | CQRS+ES with No Aggregate | Vanilla JDK ☕</name>
+  <name>CQRS+ES with No Aggregate 🦕 | Vanilla JDK ☕</name>
 
   <properties>
     <mainClass>src/main/java/SeatBooking.java</mainClass>

@@ -22,6 +22,7 @@ public class HttpServer extends AbstractVerticle implements Verticle {
           .reduce(router(vertx), (router, service) -> service.apply(router), nop())
       )
       .listen(8080)
+      .onSuccess(it -> System.out.println(STR."Http-Server started on port \{it.actualPort()}"))
       .onSuccess(it -> start.complete())
       .onFailure(it -> start.fail(STR."Can't start http-server on port 8080: \{it.getMessage()}"));
   }

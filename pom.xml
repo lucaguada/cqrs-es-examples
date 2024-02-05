@@ -13,7 +13,6 @@
   <modules>
     <module>aggregate-less</module>
     <module>aggregate-plain</module>
-    <module>aggregate-plain/vertx</module>
   </modules>
 
   <properties>

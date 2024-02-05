@@ -11,7 +11,7 @@
   </parent>
 
   <artifactId>vertx</artifactId>
-  <name>Grimlock 🦖 | CQRS+ES with Plain Aggregate | Vert.x Toolset 🌪️</name>
+  <name>CQRS+ES with Plain Aggregate 🦕 | Vert.x Toolset 🌪️</name>
 
   <dependencies>
     <dependency>
