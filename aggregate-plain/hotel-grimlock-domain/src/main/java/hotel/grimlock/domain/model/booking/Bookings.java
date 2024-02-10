@@ -1,17 +1,18 @@
 package hotel.grimlock.domain.model.booking;
 
-import app.saintmark.api.model.domain.Aggregates;
-import app.saintmark.api.port.EventSource;
-import app.saintmark.api.port.egress.Repository;
-import app.saintmark.api.port.egress.dto.BookingDto;
+import hotel.grimlock.api.model.domain.Aggregates;
+import hotel.grimlock.api.port.EventSource;
+import hotel.grimlock.api.port.egress.Repository;
+import hotel.grimlock.api.port.egress.dto.BookingDto;
 import hotel.grimlock.domain.value.Period;
-import hotel.grimlock.domain.value.Room;
+import hotel.grimlock.domain.value.RoomNumber;
 
+import java.util.Iterator;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.stream.Stream;
 
-public record Bookings(Repository<UUID, BookingDto> repository, EventSource source) implements Aggregates<Booking.Id, Booking> {
+public record Bookings(Repository<UUID, BookingDto> repository, EventSource source) implements Aggregates<Booking.Id, Booking>, Iterable<Booking> {
   @Override
   public void save(Booking booking) {
     repository.save(
@@ -19,7 +20,7 @@ public record Bookings(Repository<UUID, BookingDto> repository, EventSource sour
         booking.id().value(),
         booking.period().from(),
         booking.period().to(),
-        booking.room().value()
+        booking.roomNumber().value()
       )
     );
     Stream.of(booking.changes()).forEach(source::emit);
@@ -33,7 +34,18 @@ public record Bookings(Repository<UUID, BookingDto> repository, EventSource sour
         Booking.from(
           Booking.Id.from(dto.id()),
           Period.of(dto.from(), dto.to()),
-          Room.of(dto.room()))
+          RoomNumber.of(dto.room()))
       );
+  }
+
+  @Override
+  public Iterator<Booking> iterator() {
+    return repository.findAll()
+      .map(dto ->
+        Booking.from(
+          Booking.Id.from(dto.id()),
+          Period.of(dto.from(), dto.to()),
+          RoomNumber.of(dto.room()))
+      ).iterator();
   }
 }

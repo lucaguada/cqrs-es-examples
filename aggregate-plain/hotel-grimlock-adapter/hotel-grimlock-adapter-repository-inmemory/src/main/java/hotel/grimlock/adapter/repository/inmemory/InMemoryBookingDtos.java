@@ -1,16 +1,14 @@
 package hotel.grimlock.adapter.repository.inmemory;
 
-import app.saintmark.api.port.EventSource;
-import app.saintmark.api.port.egress.Repository;
-import app.saintmark.api.port.egress.dto.BookingDto;
-import hotel.grimlock.domain.model.booking.Booking;
+import hotel.grimlock.api.port.EventSource;
+import hotel.grimlock.api.port.egress.Repository;
+import hotel.grimlock.api.port.egress.dto.BookingDto;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.stream.Stream;
 
 public record InMemoryBookingDtos(List<BookingDto> bookings, ReentrantLock reentrant) implements Repository<UUID, BookingDto> {
   public InMemoryBookingDtos(EventSource source) {

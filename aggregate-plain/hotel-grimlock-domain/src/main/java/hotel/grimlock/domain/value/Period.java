@@ -1,10 +1,8 @@
 package hotel.grimlock.domain.value;
 
-import app.saintmark.api.model.Value;
-import com.java.util.Raisable;
+import hotel.grimlock.api.model.Value;
 
 import java.time.LocalDate;
-import java.util.Optional;
 
 import static com.java.util.Raisable.*;
 
