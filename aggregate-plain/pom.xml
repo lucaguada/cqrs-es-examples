@@ -17,7 +17,6 @@
   <modules>
     <module>hotel-grimlock-api</module>
     <module>hotel-grimlock-domain</module>
-    <module>vertx</module>
     <module>hotel-grimlock-adapter</module>
   </modules>
 
