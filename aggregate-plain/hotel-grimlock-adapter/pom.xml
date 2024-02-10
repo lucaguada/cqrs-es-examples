@@ -9,12 +9,19 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>saintmark-domain</artifactId>
+  <groupId>io.grimlock.aggregate.plain.adapter</groupId>
+  <artifactId>hotel-grimlock-adapter</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Hotel Grimlock Adapter</name>
+  <modules>
+    <module>hotel-grimlock-adapter-repository-inmemory</module>
+  </modules>
 
   <dependencies>
     <dependency>
       <groupId>io.grimlock.aggregate.plain</groupId>
-      <artifactId>saintmark-api</artifactId>
+      <artifactId>hotel-grimlock-domain</artifactId>
       <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>

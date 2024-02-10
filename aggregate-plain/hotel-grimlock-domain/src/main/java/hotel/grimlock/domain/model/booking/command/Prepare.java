@@ -1,4 +1,4 @@
-package app.saintmark.domain.model.booking.command;
+package hotel.grimlock.domain.model.booking.command;
 
 import app.saintmark.api.model.domain.Command;
 

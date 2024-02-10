@@ -6,5 +6,5 @@ public interface EventSource {
   @SuppressWarnings("unchecked")
   <EVENT extends Event<EVENT>> EventSource register(Event.Handler<EVENT> handler, EVENT... events);
 
-  <EVENT extends Event<EVENT>> void send(EVENT event);
+  void emit(Event<?> event);
 }

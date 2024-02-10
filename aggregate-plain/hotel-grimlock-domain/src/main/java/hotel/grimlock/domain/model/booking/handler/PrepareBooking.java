@@ -1,8 +1,8 @@
-package app.saintmark.domain.model.booking.handler;
+package hotel.grimlock.domain.model.booking.handler;
 
 import app.saintmark.api.model.domain.CommandTarget;
 import app.saintmark.api.port.ingress.CommandSource;
-import app.saintmark.domain.model.booking.command.Prepare;
+import hotel.grimlock.domain.model.booking.command.Prepare;
 
 public record PrepareBooking() implements CommandTarget {
   @Override

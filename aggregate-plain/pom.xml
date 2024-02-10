@@ -15,9 +15,10 @@
 
   <name>Grimlock 🦖 | CQRS+ES with Plain Aggregate</name>
   <modules>
-    <module>saintmark-api</module>
-    <module>saintmark-domain</module>
+    <module>hotel-grimlock-api</module>
+    <module>hotel-grimlock-domain</module>
     <module>vertx</module>
+    <module>hotel-grimlock-adapter</module>
   </modules>
 
 </project>
