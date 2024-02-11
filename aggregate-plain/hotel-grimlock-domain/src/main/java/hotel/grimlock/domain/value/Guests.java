@@ -2,7 +2,7 @@ package hotel.grimlock.domain.value;
 
 import hotel.grimlock.api.model.domain.Value;
 
-import static com.java.util.Raisable.raise;
+import static com.java.util.ThrowableSupport.throwing;
 
 public record Guests(Byte value) implements Value<Byte> {
   private static final byte MAX_GUESTS = 50;
@@ -16,6 +16,6 @@ public record Guests(Byte value) implements Value<Byte> {
   private static byte guard(byte value) {
     return value > 0 && value <= MAX_GUESTS
       ? value
-      : raise(() -> new IllegalArgumentException(STR."Can't instantiate guests, guests must be a value between 1 and \{MAX_GUESTS}"));
+      : throwing(() -> new IllegalArgumentException(STR."Can't instantiate guests, guests must be a value between 1 and \{MAX_GUESTS}"));
   }
 }

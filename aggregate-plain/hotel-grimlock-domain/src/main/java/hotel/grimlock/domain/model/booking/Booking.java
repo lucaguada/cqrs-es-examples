@@ -1,43 +1,48 @@
 package hotel.grimlock.domain.model.booking;
 
+import com.java.util.ArraySupport;
 import hotel.grimlock.api.model.Event;
 import hotel.grimlock.api.model.domain.Aggregate;
-import hotel.grimlock.domain.model.room.Room;
-import hotel.grimlock.domain.value.Period;
+import hotel.grimlock.domain.model.booking.event.BookingCreated;
+import hotel.grimlock.domain.model.booking.event.ReservationInPending;
+import hotel.grimlock.domain.model.booking.event.RoomLocked;
+import hotel.grimlock.domain.value.Room;
+import hotel.grimlock.domain.model.reservation.Reservation;
 
-import java.util.UUID;
+import java.util.Arrays;
+import java.util.function.Predicate;
 
-public record Booking(Booking.Id id, Period period, Room.Number roomNumber, Status status, Event<?>... changes) implements Aggregate<Booking.Id> {
-  public static Booking from(Id id, Period period, Room.Number room) {
-    return new Booking(id, period, room, Status.Pending);
+public record Booking(Room.Number room, Reservation[] reservations, Event<?>... changes) implements Aggregate<Room.Number>, ArraySupport {
+  public static Booking withReservation(Room.Number number, Reservation... reservation) {
+    return new Booking(
+      number,
+      reservation,
+      new BookingCreated(number),
+      new ReservationInPending(number, reservation[0].period(), reservation[0].guests()),
+      new RoomLocked(number, reservation[0].period())
+    );
   }
 
-  public boolean has(Room.Number room) {
-    return this.roomNumber.equals(room);
+
+  public static Booking from(Room.Number room, Reservation... reservations) {
+    return new Booking(room, reservations);
   }
 
-  public record Id(UUID value) implements hotel.grimlock.api.model.domain.Id<UUID> {
-    public static Id from(UUID id) {
-      return new Id(id);
-    }
-
-    public static Id random() {
-      return new Id(UUID.randomUUID());
-    }
-
-    public static final Id ZERO = new Id(new UUID(0, 0));
+  @Override
+  public Room.Number id() {
+    return room;
   }
 
-  public enum Status {
-    Pending, Confirmed, Cancelled, Completed
+  public Booking addReservation(Reservation reservation) {
+    return new Booking(
+      room,
+      concat(reservation, reservations),
+      new ReservationInPending(room, reservation.period(), reservation.guests()),
+      new RoomLocked(room, reservation.period())
+    );
   }
 
-  public boolean overlaps(Period period) {
-    return period.from().isAfter(this.period.from()) && period.from().isBefore(this.period.to()) ||
-      period.to().isAfter(this.period.from()) && period.to().isBefore(this.period.to());
-  }
-
-  public boolean is(Status status) {
-    return this.status.equals(status);
+  public boolean contains(Predicate<Reservation> condition) {
+    return Arrays.stream(reservations).anyMatch(condition);
   }
 }

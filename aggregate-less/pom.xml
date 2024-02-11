@@ -17,7 +17,6 @@
   <name>Grimlock 🦖 | CQRS+ES with No Aggregate 🦕</name>
 
   <modules>
-    <module>vanilla-jdk</module>
   </modules>
 
   <properties>
