@@ -11,7 +11,7 @@
   <packaging>pom</packaging>
   <name>Crystal City Hotel 🔮 | Parent</name>
   <modules>
-    <module>cqrs</module>
+    <module>hotel-crystalcity-cqrs</module>
   </modules>
 
   <properties>

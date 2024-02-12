@@ -11,7 +11,7 @@
   </parent>
 
   <groupId>hotel.crystalcity.cqrs</groupId>
-  <artifactId>cqrs</artifactId>
+  <artifactId>hotel-crystalcity-cqrs</artifactId>
   <packaging>pom</packaging>
 
   <name>Crystal City Hotel 🔮 | Command and Query Responsibility Segregation only</name>

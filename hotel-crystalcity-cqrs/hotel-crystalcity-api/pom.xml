@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>hotel.crystalcity.cqrs</groupId>
-    <artifactId>cqrs</artifactId>
+    <artifactId>hotel-crystalcity-cqrs</artifactId>
     <version>1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>

@@ -5,19 +5,13 @@
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>hotel.crystalcity.cqrs</groupId>
-    <artifactId>cqrs</artifactId>
+    <artifactId>hotel-crystalcity-cqrs</artifactId>
     <version>1.0-SNAPSHOT</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
 
-  <groupId>hotel.crystalcity.cqrs.adapter</groupId>
-  <artifactId>hotel-crystalcity-adapter</artifactId>
-  <packaging>pom</packaging>
-
-  <name>Crystal City Hotel 🔮 | Parent Adapter</name>
-  <modules>
-    <module>hotel-crystalcity-adapter-storage-inmemory</module>
-  </modules>
+  <name>Crystal City Hotel 🔮 | Domain &amp; View Model</name>
+  <artifactId>hotel-crystalcity-model</artifactId>
 
   <dependencies>
     <dependency>
