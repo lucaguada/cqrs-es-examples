@@ -1,8 +1,6 @@
 package hotel.crystalcity.cqrs.api.acl;
 
-import hotel.crystalcity.cqrs.api.port.Dto;
-
-public interface Shift<ENTITY, DTO extends Dto<?>> {
+public interface Shift<ENTITY, DTO> {
   ENTITY asEntity(DTO dto);
 
   DTO asDto(ENTITY entity);

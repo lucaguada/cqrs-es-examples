@@ -1,4 +1,4 @@
-package hotel.crystalcity.cqrs.api.port.ingress;
+package hotel.crystalcity.cqrs.api.model.domain.service;
 
 import hotel.crystalcity.cqrs.api.model.view.Query;
 

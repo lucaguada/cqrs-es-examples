@@ -1,8 +1,8 @@
 package hotel.crystalcity.cqrs.model.domain.booking.handler;
 
 import hotel.crystalcity.cqrs.model.domain.booking.Bookings;
-import hotel.crystalcity.cqrs.api.model.domain.CommandTarget;
-import hotel.crystalcity.cqrs.api.port.ingress.CommandSource;
+import hotel.crystalcity.cqrs.api.model.domain.service.CommandTarget;
+import hotel.crystalcity.cqrs.api.model.domain.service.CommandSource;
 import hotel.crystalcity.cqrs.model.domain.booking.Booking;
 import hotel.crystalcity.cqrs.model.domain.booking.command.DemandAvailability;
 import hotel.crystalcity.cqrs.model.domain.reservation.Reservation;

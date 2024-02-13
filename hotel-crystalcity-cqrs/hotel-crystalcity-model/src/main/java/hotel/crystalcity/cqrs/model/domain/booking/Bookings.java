@@ -4,7 +4,7 @@ import hotel.crystalcity.cqrs.api.acl.Shift;
 import hotel.crystalcity.cqrs.api.model.domain.Aggregates;
 import hotel.crystalcity.cqrs.api.port.EventSource;
 import hotel.crystalcity.cqrs.api.port.egress.Storage;
-import hotel.crystalcity.cqrs.api.port.egress.dto.BookingDto;
+import hotel.crystalcity.cqrs.api.port.egress.dto.entity.BookingDto;
 import hotel.crystalcity.cqrs.model.value.Room;
 
 import java.util.Optional;

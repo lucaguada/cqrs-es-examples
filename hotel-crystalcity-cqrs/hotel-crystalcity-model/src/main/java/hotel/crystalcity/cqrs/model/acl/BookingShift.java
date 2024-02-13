@@ -1,8 +1,8 @@
 package hotel.crystalcity.cqrs.model.acl;
 
 import hotel.crystalcity.cqrs.api.acl.Shift;
-import hotel.crystalcity.cqrs.api.port.egress.dto.BookingDto;
-import hotel.crystalcity.cqrs.api.port.egress.dto.ReservationDto;
+import hotel.crystalcity.cqrs.api.port.egress.dto.entity.BookingDto;
+import hotel.crystalcity.cqrs.api.port.egress.dto.entity.ReservationDto;
 import hotel.crystalcity.cqrs.model.domain.booking.Booking;
 import hotel.crystalcity.cqrs.model.domain.reservation.Reservation;
 import hotel.crystalcity.cqrs.model.value.Room;

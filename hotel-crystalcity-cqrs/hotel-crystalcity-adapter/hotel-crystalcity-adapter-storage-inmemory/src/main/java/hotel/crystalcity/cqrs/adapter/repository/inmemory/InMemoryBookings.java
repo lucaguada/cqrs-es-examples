@@ -2,8 +2,7 @@ package hotel.crystalcity.cqrs.adapter.repository.inmemory;
 
 import hotel.crystalcity.cqrs.api.port.EventSource;
 import hotel.crystalcity.cqrs.api.port.egress.Storage;
-import hotel.crystalcity.cqrs.api.port.egress.dto.BookingDto;
-import hotel.crystalcity.cqrs.api.port.egress.dto.RoomDto;
+import hotel.crystalcity.cqrs.api.port.egress.dto.entity.BookingDto;
 
 import java.util.HashMap;
 import java.util.Map;

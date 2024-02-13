@@ -1,4 +1,4 @@
-package hotel.crystalcity.cqrs.api.port.egress.dto;
+package hotel.crystalcity.cqrs.api.port.egress.dto.entity;
 
 import hotel.crystalcity.cqrs.api.port.Dto;
 
