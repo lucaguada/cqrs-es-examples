@@ -10,7 +10,7 @@ public enum ReservationShift implements Shift<Reservation, ReservationDto> {
   Default;
 
   @Override
-  public Reservation asEntity(ReservationDto dto) {
+  public Reservation fromDto(ReservationDto dto) {
     return new Reservation(
       Reservation.Number.of(dto.number()),
       Period.of(dto.from(), dto.to()),
@@ -20,7 +20,7 @@ public enum ReservationShift implements Shift<Reservation, ReservationDto> {
   }
 
   @Override
-  public ReservationDto asDto(Reservation reservation) {
+  public ReservationDto fromEntity(Reservation reservation) {
     return new ReservationDto(
       reservation.number().value(),
       reservation.period().from(),

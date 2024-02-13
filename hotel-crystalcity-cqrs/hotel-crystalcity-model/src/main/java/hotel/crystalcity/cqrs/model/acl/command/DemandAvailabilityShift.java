@@ -11,7 +11,7 @@ public enum DemandAvailabilityShift implements Shift<DemandAvailability, DemandA
   Default;
 
   @Override
-  public DemandAvailability asEntity(DemandAvailabilityDto demandAvailabilityDto) {
+  public DemandAvailability fromDto(DemandAvailabilityDto demandAvailabilityDto) {
     return new DemandAvailability(
       Room.Number.of(demandAvailabilityDto.roomNumber()),
       Period.of(demandAvailabilityDto.from(), demandAvailabilityDto.to()),
@@ -20,7 +20,7 @@ public enum DemandAvailabilityShift implements Shift<DemandAvailability, DemandA
   }
 
   @Override
-  public DemandAvailabilityDto asDto(DemandAvailability demandAvailability) {
+  public DemandAvailabilityDto fromEntity(DemandAvailability demandAvailability) {
     return new DemandAvailabilityDto(
       demandAvailability.room().value(),
       demandAvailability.period().from(),

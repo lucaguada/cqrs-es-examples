@@ -17,18 +17,18 @@ public enum BookingShift implements Shift<Booking, BookingDto> {
   BookingShift(Shift<Reservation, ReservationDto> reservation) {this.reservation = reservation;}
 
   @Override
-  public Booking asEntity(BookingDto dto) {
+  public Booking fromDto(BookingDto dto) {
     return new Booking(
       Room.Number.of(dto.roomNumber()),
-      Stream.of(dto.reservations()).map(reservation::asEntity).toArray(Reservation[]::new)
+      Stream.of(dto.reservations()).map(reservation::fromDto).toArray(Reservation[]::new)
     );
   }
 
   @Override
-  public BookingDto asDto(Booking aggregate) {
+  public BookingDto fromEntity(Booking aggregate) {
     return new BookingDto(
       aggregate.room().value(),
-      Stream.of(aggregate.reservations()).map(reservation::asDto).toArray(ReservationDto[]::new)
+      Stream.of(aggregate.reservations()).map(reservation::fromEntity).toArray(ReservationDto[]::new)
     );
   }
 }
