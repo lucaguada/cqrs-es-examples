@@ -1,4 +1,4 @@
-package hotel.crystalcity.cqrs.adapter.restapi.vertx;
+package hotel.crystalcity.cqrs.adapter.restapi.vertx.restapi;
 
 import io.vertx.ext.web.Router;
 

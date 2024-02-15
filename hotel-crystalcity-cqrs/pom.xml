@@ -19,6 +19,7 @@
     <module>hotel-crystalcity-api</module>
     <module>hotel-crystalcity-model</module>
     <module>hotel-crystalcity-adapter</module>
+    <module>hotel-crystalcity-vertx</module>
   </modules>
 
 </project>

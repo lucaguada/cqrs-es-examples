@@ -4,6 +4,6 @@ import hotel.crystalcity.cqrs.api.port.Dto;
 
 import java.util.Optional;
 
-public interface CommandGateway {
-  <DTO extends Dto<?>> Optional<Boolean> submit(DTO command);
+public interface QueryGateway {
+  <DTO extends Dto<?>> Dto<?>[] search(String projection, DTO command);
 }

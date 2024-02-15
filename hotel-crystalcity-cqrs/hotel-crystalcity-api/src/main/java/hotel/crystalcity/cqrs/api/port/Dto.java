@@ -1,5 +1,7 @@
 package hotel.crystalcity.cqrs.api.port;
 
-public interface Dto<ID> {
+import java.io.Serializable;
+
+public interface Dto<ID> extends Serializable {
   ID id();
 }

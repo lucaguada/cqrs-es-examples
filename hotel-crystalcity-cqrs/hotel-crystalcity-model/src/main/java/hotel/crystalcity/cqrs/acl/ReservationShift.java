@@ -1,16 +1,14 @@
-package hotel.crystalcity.cqrs.model.acl;
+package hotel.crystalcity.cqrs.acl;
 
 import hotel.crystalcity.cqrs.api.acl.Shift;
 import hotel.crystalcity.cqrs.api.port.egress.dto.entity.ReservationDto;
+import hotel.crystalcity.cqrs.model.domain.reservation.Reservation;
 import hotel.crystalcity.cqrs.model.value.Guests;
 import hotel.crystalcity.cqrs.model.value.Period;
-import hotel.crystalcity.cqrs.model.domain.reservation.Reservation;
 
-public enum ReservationShift implements Shift<Reservation, ReservationDto> {
-  Default;
+public interface ReservationShift {
 
-  @Override
-  public Reservation fromDto(ReservationDto dto) {
+  default Reservation fromDto(ReservationDto dto) {
     return new Reservation(
       Reservation.Number.of(dto.number()),
       Period.of(dto.from(), dto.to()),
@@ -19,8 +17,7 @@ public enum ReservationShift implements Shift<Reservation, ReservationDto> {
     );
   }
 
-  @Override
-  public ReservationDto fromEntity(Reservation reservation) {
+  default ReservationDto fromEntity(Reservation reservation) {
     return new ReservationDto(
       reservation.number().value(),
       reservation.period().from(),
