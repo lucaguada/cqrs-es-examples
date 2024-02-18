@@ -11,16 +11,11 @@ import hotel.crystalcity.cqrs.model.value.Room;
 
 import java.util.ServiceLoader;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
-public record Booking(Room.Number room, Reservation[] reservations, Event<?>... changes) implements Aggregate<Room.Number>, ArraySupport {
-  public static Booking withReservation(Room.Number number, Reservation... reservation) {
-    return new Booking(
-      number,
-      reservation,
-      new BookingCreated(number),
-      new ReservationInPending(number, reservation[0].period(), reservation[0].guests()),
-      new RoomLocked(number, reservation[0].period())
-    );
+public record Booking(Room.Number room, Stream<Reservation> reservations, Event<?>... changes) implements Aggregate<Room.Number>, ArraySupport {
+  public Booking(Room.Number room, Reservation... reservations) {
+    this(room, Stream.of(reservations));
   }
 
   @Override
@@ -31,13 +26,8 @@ public record Booking(Room.Number room, Reservation[] reservations, Event<?>... 
   public Booking addReservation(Reservation reservation) {
     return new Booking(
       room,
-      concat(reservation, reservations),
-      new ReservationInPending(room, reservation.period(), reservation.guests()),
-      new RoomLocked(room, reservation.period())
+      Stream.concat(reservations, Stream.of(reservation)),
+      new ReservationInPending(room, reservation.period(), reservation.guests())
     );
-  }
-
-  public boolean contains(Predicate<Reservation> condition) {
-    return stream(reservations).anyMatch(condition);
   }
 }

@@ -9,6 +9,8 @@ import hotel.crystalcity.cqrs.model.value.Period;
 import java.util.UUID;
 
 import static com.java.util.ThrowableSupport.throwing;
+import static hotel.crystalcity.cqrs.model.domain.reservation.Reservation.Status.Cancelled;
+import static hotel.crystalcity.cqrs.model.domain.reservation.Reservation.Status.Completed;
 import static java.util.Arrays.binarySearch;
 
 public record Reservation(Number number, Period period, Status status, Guests guests, Event<?>... changes) implements Aggregate<Reservation.Number> {
@@ -36,8 +38,8 @@ public record Reservation(Number number, Period period, Status status, Guests gu
   }
 
   public boolean overlaps(Period period) {
-    return period.from().isAfter(this.period.from()) && period.from().isBefore(this.period.to()) ||
-      period.to().isAfter(this.period.from()) && period.to().isBefore(this.period.to());
+    return isNot(Cancelled, Completed) && (period.from().isAfter(this.period.from()) && period.from().isBefore(this.period.to()) ||
+      period.to().isAfter(this.period.from()) && period.to().isBefore(this.period.to()));
   }
 
   public boolean is(Status status) {

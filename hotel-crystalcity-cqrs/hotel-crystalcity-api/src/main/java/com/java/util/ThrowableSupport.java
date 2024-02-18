@@ -10,4 +10,5 @@ public interface ThrowableSupport {
   default <RETURN> RETURN raise(Supplier<? extends Throwable> throwable) {
     throw (RuntimeException) throwable.get();
   }
+
 }

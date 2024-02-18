@@ -4,7 +4,7 @@ import hotel.crystalcity.cqrs.adapter.repository.inmemory.InMemoryBookings;
 import hotel.crystalcity.cqrs.adapter.restapi.vertx.restapi.HttpServerVerticle;
 import hotel.crystalcity.cqrs.adapter.restapi.vertx.service.BookingVerticle;
 import hotel.crystalcity.cqrs.model.domain.booking.Bookings;
-import hotel.crystalcity.cqrs.model.domain.booking.handler.BookingHandler;
+import hotel.crystalcity.cqrs.model.domain.booking.handler.DemandBookingAvailability;
 import hotel.crystalcity.cqrs.model.domain.booking.service.BookingDomain;
 import io.vertx.core.Vertx;
 
@@ -17,7 +17,7 @@ interface Main {
         vertx.deployVerticle(
           new BookingVerticle(
             new BookingDomain(
-              new BookingHandler(
+              new DemandBookingAvailability(
                 new Bookings(
                   new InMemoryBookings()
                 )
